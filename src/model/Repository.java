@@ -47,8 +47,6 @@ public class Repository {
 	}
 
 	public void removeByRank(double rank){
-//students.stream().filter(student -> student.getRank()==rank).
-		//students.removeIf(e -> e.getRank() == rank);
 		Iterator<Student> iter=students.iterator();
 		while(iter.hasNext()){
 			Student student=iter.next();
