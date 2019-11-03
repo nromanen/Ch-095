@@ -43,15 +43,6 @@ public class Student implements Comparable<Student> {
 		return Objects.hash(firstName, lastName, rank);
 	}
 
-//	@Override
-//	public boolean equals(Object o) {
-//		if (this == o) return true;
-//		if (o == null || getClass() != o.getClass()) return false;
-//		Student student = (Student) o;
-//		return Objects.equals(firstName, student.firstName) &&
-//				Objects.equals(lastName, student.lastName);
-//	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
