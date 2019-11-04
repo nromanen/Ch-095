@@ -68,7 +68,7 @@ public class Student implements Comparable<Student> {
             return false;
         }
         Student other = (Student) otherObject;
-        return  Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
+        return  Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
 
     }
 
