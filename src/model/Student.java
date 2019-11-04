@@ -51,7 +51,8 @@ public class Student implements Comparable<Student> {
 		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", rank=" + rank + "]";
 	}
 	public int compareTo(Student other){
-		return lastName.compareTo(other.getLastName());
+
+		return Double.compare(rank, other.rank);
 	}
 
 	@Override
