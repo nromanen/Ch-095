@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -50,10 +51,11 @@ public class Repository {
 		Iterator<Student> iter=students.iterator();
 		while(iter.hasNext()){
 			Student student=iter.next();
-			if (student.getRank()==rank){
+			if (student.getRank() > rank){
 				iter.remove();
 			}
 		}
 	}
+
 
 }
