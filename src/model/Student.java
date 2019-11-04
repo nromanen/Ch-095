@@ -53,4 +53,21 @@ public class Student implements Comparable<Student> {
 	public int compareTo(Student other){
 		return lastName.compareTo(other.getLastName());
 	}
+
+	@Override
+	public boolean equals(Object otherObject) {
+		if(this == otherObject) {
+			return true;
+		}
+		if (otherObject == null) {
+			return false;
+		}
+
+		if (getClass() != otherObject.getClass()) {
+			return false;
+		}
+		Student other = (Student) otherObject;
+		return  Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
+				&& rank == other.rank;
+	}
 }
