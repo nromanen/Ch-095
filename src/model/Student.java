@@ -1,7 +1,6 @@
 package model;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Student implements Comparable<Student> {
 	private String firstName;
@@ -38,24 +37,7 @@ public class Student implements Comparable<Student> {
 		return lastName;
 	}
 
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	@Override
-	public String toString() {
-		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", rank=" + rank + "]";
-	}
-	public int compareTo(Student other){
-
-		if( lastName.compareTo(other.getLastName()) < 0 |
-				firstName.compareTo(other.getLastName()) < 0 ){
-			return -1;
-		}
-		return 0;
-	}
-
-	@Override
+    @Override
     public boolean equals(Object otherObject) {
         if(this == otherObject) {
             return true;
@@ -74,8 +56,23 @@ public class Student implements Comparable<Student> {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, lastName, rank);
+		return Objects.hash(firstName, lastName);
 	}
 
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
+	@Override
+	public String toString() {
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", rank=" + rank + "]";
+	}
+
+    public int compareTo(Student other){
+        if( lastName.compareTo(other.getLastName()) < 0 |
+                firstName.compareTo(other.getLastName()) < 0 ){
+            return -1;
+        }
+        return 0;
+    }
 }

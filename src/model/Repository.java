@@ -1,7 +1,8 @@
 package model;
 
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -47,15 +48,21 @@ public class Repository {
 		return students.stream().filter(st -> st.getFirstName().equals(name)).collect(Collectors.toSet());
 	}
 
-	public void removeByRank(double rank){
-		Iterator<Student> iter=students.iterator();
-		while(iter.hasNext()){
-			Student student=iter.next();
-			if (student.getRank() > rank){
-				iter.remove();
-			}
-		}
-	}
+    public void removeByRank(double rank){
+        Iterator<Student> iter=students.iterator();
+        while(iter.hasNext()){
+            Student student=iter.next();
+            if (student.getRank() > rank){
+                iter.remove();
+            }
+        }
+    }
+
+    public HashSet<Student> getSortedStudentsByRank() {
+        return new HashSet<Student>(students.stream()
+                .sorted(Comparator.comparingDouble(Student::getRank))
+                .collect(Collectors.toList()));
+    }
 
 
 }
