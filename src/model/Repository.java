@@ -1,13 +1,13 @@
 package model;
 
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
 import com.google.gson.Gson;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Repository {
@@ -18,11 +18,14 @@ public class Repository {
 		this.students = students;
 	}
 
-	public void populateStudents(){
-		students.add(new Student("aa", "aa",2.5));
-		students.add(new Student("ab", "ab", 2.52));
+	public void populateStudents(String path) throws IOException {
+        students = readFromJson(path);
 	}
-	
+
+    private Set<Student> readFromJson(String path) throws IOException {
+        return new HashSet<>(Arrays.asList(new Gson().fromJson(new FileReader(path), Student[].class)));
+    }
+
 	public boolean addStudent(Student student){
 		return students.add(student);
 	}
@@ -56,7 +59,7 @@ public class Repository {
 		Iterator<Student> iter=students.iterator();
 		while(iter.hasNext()){
 			Student student=iter.next();
-			if (student.getRank() > rank){
+			if (student.getRank()==rank){
 				iter.remove();
 			}
 		}

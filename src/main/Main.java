@@ -14,7 +14,7 @@ public class Main {
     public static void main(String... strings) throws IOException {
         Set<Student> students = new HashSet<>();
         Repository rep = new Repository(students);
-        rep.populateStudents();
+        rep.populateStudents("test.json");
         List<Student> studentsByName = new ArrayList<>();
         studentsByName.addAll(students);
         Student firstStudent = new Student("aa", "aa", 2.5);
