@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -54,7 +55,7 @@ public class Repository {
 
 	public HashSet<Student> getSortedStudentsByRank() {
 		return new HashSet<Student>(students.stream()
-				.sorted()
+				.sorted(Comparator.comparingDouble(Student::getRank))
 				.collect(Collectors.toList()));
 	}
 
