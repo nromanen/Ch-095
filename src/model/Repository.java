@@ -2,12 +2,9 @@ package model;
 
 import com.google.gson.Gson;
 
-import javax.xml.bind.JAXBException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Repository {
@@ -18,14 +15,12 @@ public class Repository {
         this.students = students;
     }
 
-    public void populateStudents() throws IOException, JAXBException {
+    public void populateStudents() throws IOException {
         students = readFromJson("test.json");
     }
 
-    private Set<Student> readFromJson(String path) throws IOException, JAXBException {
-        Repository students = new Gson().fromJson(new FileReader(path), Repository.class);
-        Set<Student> res = students.students;
-        return res;
+    private Set<Student> readFromJson(String path) throws IOException {
+        return new HashSet<>(Arrays.asList(new Gson().fromJson(new FileReader(path), Student[].class)));
     }
 
     public boolean addStudent(Student student) {

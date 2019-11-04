@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Main {
-    public static void main(String... strings) throws IOException, JAXBException {
+    public static void main(String... strings) throws IOException {
         Set<Student> students = new HashSet<>();
         Repository rep = new Repository(students);
         rep.populateStudents();
