@@ -47,6 +47,7 @@ public class Student implements Comparable<Student> {
 		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", rank=" + rank + "]";
 	}
 	public int compareTo(Student other){
+
 		if( lastName.compareTo(other.getLastName()) < 0 |
 				firstName.compareTo(other.getLastName()) < 0 ){
 			return -1;
@@ -55,14 +56,21 @@ public class Student implements Comparable<Student> {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Student student = (Student) o;
-		return Double.compare(student.rank, rank) == 0 &&
-				Objects.equals(firstName, student.firstName) &&
-				Objects.equals(lastName, student.lastName);
-	}
+    public boolean equals(Object otherObject) {
+        if(this == otherObject) {
+            return true;
+        }
+        if (otherObject == null) {
+            return false;
+        }
+
+        if (getClass() != otherObject.getClass()) {
+            return false;
+        }
+        Student other = (Student) otherObject;
+        return  Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
+
+    }
 
 	@Override
 	public int hashCode() {
