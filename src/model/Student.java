@@ -47,8 +47,8 @@ public class Student implements Comparable<Student> {
 		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", rank=" + rank + "]";
 	}
 	public int compareTo(Student other){
-		if( lastName.compareTo(other.getLastName()) == -1 |
-				firstName.compareTo(other.getLastName()) == -1){
+		if( lastName.compareTo(other.getLastName()) < 0 |
+				firstName.compareTo(other.getLastName()) < 0 ){
 			return -1;
 		}
 		return 0;
@@ -68,4 +68,6 @@ public class Student implements Comparable<Student> {
 	public int hashCode() {
 		return Objects.hash(firstName, lastName, rank);
 	}
+
+
 }
