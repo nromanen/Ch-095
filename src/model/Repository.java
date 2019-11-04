@@ -7,10 +7,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Repository {
-	Set<Student> students;
+
+	private Set<Student> students;
 	
 	public Repository(Set<Student> students) {
-		super();
 		this.students = students;
 	}
 
@@ -63,6 +63,5 @@ public class Repository {
                 .sorted(Comparator.comparingDouble(Student::getRank))
                 .collect(Collectors.toList()));
     }
-
 
 }
