@@ -7,10 +7,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Repository {
-
-	private Set<Student> students;
+	Set<Student> students;
 	
 	public Repository(Set<Student> students) {
+		super();
 		this.students = students;
 	}
 

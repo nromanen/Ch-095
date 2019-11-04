@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Student implements Comparable<Student> {
 	private String firstName;
@@ -67,12 +68,14 @@ public class Student implements Comparable<Student> {
 	public String toString() {
 		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", rank=" + rank + "]";
 	}
+	public int compareTo(Student other){
+		if( lastName.compareTo(other.getLastName()) < 0 |
+				firstName.compareTo(other.getLastName()) < 0 ){
+			return -1;
+		}
+		return 0;
+	}
 
-    public int compareTo(Student other){
-        if( lastName.compareTo(other.getLastName()) < 0 |
-                firstName.compareTo(other.getLastName()) < 0 ){
-            return -1;
-        }
-        return 0;
-    }
+
+
 }
