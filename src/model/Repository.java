@@ -1,14 +1,15 @@
 package model;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Repository {
-	Set<Student> students;
+
+	private Set<Student> students;
 	
 	public Repository(Set<Student> students) {
-		super();
 		this.students = students;
 	}
 
@@ -47,13 +48,14 @@ public class Repository {
 	}
 
 	public void removeByRank(double rank){
-		Iterator<Student> iter=students.iterator();
-		while(iter.hasNext()){
-			Student student=iter.next();
-			if (student.getRank()==rank){
-				iter.remove();
-			}
-		}
+		students.removeIf(student -> student.getRank() == rank);
+
+	}
+
+	public HashSet<Student> getSortedStudentsByRank() {
+		return new HashSet<Student>(students.stream()
+				.sorted()
+				.collect(Collectors.toList()));
 	}
 
 }
