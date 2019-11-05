@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Repository {
@@ -79,4 +76,11 @@ public class Repository {
 			}
 		}
 	}
+
+	public List<Student> getSortedByRank(){
+		return students.stream()
+				.sorted()
+				.collect(Collectors.toList());
+	}
+
 }
