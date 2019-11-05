@@ -40,8 +40,24 @@ public class Student implements Comparable<Student> {
 	}
 
 	@Override
+	public boolean equals(Object otherObject) {
+		if(this == otherObject) {
+			return true;
+		}
+		if (otherObject == null) {
+			return false;
+		}
+
+		if (getClass() != otherObject.getClass()) {
+			return false;
+		}
+		Student other = (Student) otherObject;
+		return  Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
+	}
+
+	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, lastName, rank);
+		return Objects.hash(firstName, lastName);
 	}
 
 	public void setLastName(String lastName) {
@@ -54,6 +70,6 @@ public class Student implements Comparable<Student> {
 	}
 
 	public int compareTo(Student other){
-		return lastName.compareTo(other.getLastName());
+		return Double.compare(rank, other.getRank());
 	}
 }
