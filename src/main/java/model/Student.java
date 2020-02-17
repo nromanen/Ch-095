@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Student implements Comparable<Student> {
 	private String firstName;
@@ -11,7 +12,7 @@ public class Student implements Comparable<Student> {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.rank = rank;
+		this.rank=rank;
 	}
 
 	public Student(String firstName, String lastName) {
@@ -30,46 +31,26 @@ public class Student implements Comparable<Student> {
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
 
 	@Override
-	public boolean equals(Object otherObject) {
-		if(this == otherObject) {
-			return true;
-		}
-		if (otherObject == null) {
-			return false;
-		}
-
-		if (getClass() != otherObject.getClass()) {
-			return false;
-		}
-		Student other = (Student) otherObject;
-		return  Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
-	}
-
-	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, lastName);
+		return Objects.hash(firstName, lastName, rank);
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	@Override
 	public String toString() {
 		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", rank=" + rank + "]";
 	}
-
 	public int compareTo(Student other){
-		return Double.compare(rank, other.getRank());
+		return lastName.compareTo(other.getLastName());
 	}
 }
