@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Objects;
-import java.util.Random;
+
 
 public class Student implements Comparable<Student> {
 	private String firstName;
