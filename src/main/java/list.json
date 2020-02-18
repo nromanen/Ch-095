@@ -1,0 +1,12 @@
+[
+  {
+    "firstName":"Student1",
+    "lastName":"Student2",
+    "rank":5.0
+  },
+  {
+    "firstName":"Student2",
+    "lastName":"Student2",
+    "rank":5.0
+  }
+]
