@@ -68,9 +68,19 @@ public class Repository {
 	}
 
 
+
 	public List<Student> getSortedStudentsByRank() {
 		return students.stream().sorted(Student::compareTo).collect(Collectors.toList());
 	}
+
+
+	public void removeByRankMoreThanCertain(double rank){
+		Iterator<Student> iter=students.iterator();
+		while(iter.hasNext()){
+			Student student=iter.next();
+			if (student.getRank()>rank){
+				iter.remove();
+			}
 
 	public void populateStudentsFromJson(String path){
 		
