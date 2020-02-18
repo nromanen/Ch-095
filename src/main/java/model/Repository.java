@@ -79,24 +79,25 @@ public class Repository {
             if (student.getRank() > rank) {
                 iter.remove();
             }
-            public void populateStudentsFromJson(String path){
-
-                try {
-                    // create Gson instance
-                    Gson gson = new Gson();
-                    // create a reader
-                    Reader reader = Files.newBufferedReader(Paths.get(path));
-                    // convert JSON array to list of students
-                    students.addAll(Arrays.asList(gson.fromJson(reader, Student[].class)));
-                    // close reader
-                    reader.close();
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-
         }
     }
+
+    public void populateStudentsFromJson(String path) {
+
+        try {
+            // create Gson instance
+            Gson gson = new Gson();
+            // create a reader
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            // convert JSON array to list of students
+            students.addAll(Arrays.asList(gson.fromJson(reader, Student[].class)));
+            // close reader
+            reader.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
 }
